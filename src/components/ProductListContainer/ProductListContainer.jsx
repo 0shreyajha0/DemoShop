@@ -1,7 +1,9 @@
 import { Box } from "@mui/material";
 import { ProductCard } from "../ProductCard";
 
-export const ProductListContainer = () => {
+export const ProductListContainer = (props) => {
+  console.log(props.productList);
+
   const addToCartHandler = (id) => {
     console.log("handelAddToCart : ", id);
   };
@@ -9,30 +11,23 @@ export const ProductListContainer = () => {
   const saveForLaterHandler = (id) => {
     console.log("handelSaveForLater : ", id);
   };
+
   return (
     <Box>
-      <ProductCard
-        source="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-        nameOfProduct="1stnameOfProduct"
-        price="2500"
-        category="men's"
-        description="Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-        rating="5.0"
-        id="1"
-        handelAddToCart={addToCartHandler}
-        handelSaveForLater={saveForLaterHandler}
-      />
-      <ProductCard
-        source="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-        nameOfProduct="1stnameOfProduct"
-        price="2500"
-        category="men's"
-        description="Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-        rating="5.0"
-        id="2"
-        handelAddToCart={addToCartHandler}
-        handelSaveForLater={saveForLaterHandler}
-      />
+      {props.productList.map((productItem, index) => (
+        <ProductCard
+          key={index}
+          source={productItem.image}
+          nameOfProduct={productItem.title}
+          price={productItem.price}
+          category={productItem.category}
+          description={productItem.description}
+          rating={productItem.rating.rate}
+          id={productItem.id}
+          handelAddToCart={addToCartHandler}
+          handelSaveForLater={saveForLaterHandler}
+        />
+      ))}
     </Box>
   );
 };
