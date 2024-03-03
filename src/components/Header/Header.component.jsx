@@ -2,7 +2,7 @@ import { Button, Box, Typography } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { yellow } from "@mui/material/colors";
+import { pink } from "@mui/material/colors";
 
 export const Header = () => {
   const pages = ["Product", "Categories", "Profile"];
@@ -16,8 +16,17 @@ export const Header = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: yellow[100], display: "flex" }}>
-      <Box sx={{ display: "flex" }}>
+    <Box
+      sx={{
+        backgroundColor: pink[100],
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        px: 10,
+        py: 2,
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         <AdbIcon />
         <Typography
           variant="h5"
@@ -29,25 +38,26 @@ export const Header = () => {
             fontWeight: 700,
             color: "Black",
             textDecoration: "none",
+            ml: 1,
           }}
         >
           Demo Shop
         </Typography>
       </Box>
-      <Box sx={{ flexGrow: 1, display: "flex" }}>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         {pages.map((page) => (
           <Button
             key={page}
+            sx={{ mx: 1, color: "black", fontWeight: 350 }}
             onClick={handleCloseNavMenu}
-            sx={{ my: 2, display: "block" }}
           >
             {page}
           </Button>
         ))}
+        <IconButton aria-label="cart" onClick={handleCartButton}>
+          <ShoppingCartIcon />
+        </IconButton>
       </Box>
-      <IconButton aria-label="delete" size="medium" onClick={handleCartButton}>
-        <ShoppingCartIcon fontSize="inherit" />
-      </IconButton>
     </Box>
   );
 };

@@ -20,7 +20,7 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <Box>
+    <Box sx={{ margin: "0", padding: "0" }}>
       <Header />
       <SearchAndSort />
       <ProductListContainer productList={productList} />

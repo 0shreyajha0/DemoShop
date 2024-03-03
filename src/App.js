@@ -1,11 +1,21 @@
 import { Dashboard } from "./pages/Dashboard";
-import { SearchAndSort } from "./components/SearchAndSort";
 import React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { pink } from "@mui/material/colors";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: pink[300],
+    },
+  },
+});
+
 function App() {
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <Dashboard />
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 

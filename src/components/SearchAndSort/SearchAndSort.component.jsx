@@ -7,10 +7,10 @@ import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import { red } from "@mui/material/colors";
+import { red, grey } from "@mui/material/colors";
 
 export const SearchAndSort = () => {
-  const [sortBy, setSortBy] = React.useState("");
+  const [sortBy, setSortBy] = React.useState("Ascending");
   const handleChange = (event) => {
     setSortBy(event.target.value);
     console.log("i can handle sort ");
@@ -27,11 +27,14 @@ export const SearchAndSort = () => {
         display: "flex",
         justifyContent: "space-between",
         width: "90%",
+        height: 60,
         margin: "auto",
-        backgroundColor: red[50],
+        backgroundColor: grey[200],
+        mt: 4,
+        borderRadius: "8px",
       }}
     >
-      <FormControl variant="standard">
+      <FormControl variant="standard" sx={{ ml: 10 }}>
         <InputLabel htmlFor="input-with-icon-adornment">
           Search a Product
         </InputLabel>
@@ -44,19 +47,19 @@ export const SearchAndSort = () => {
           }
         />
       </FormControl>
-      <Box sx={{ display: "flex" }}>
-        <Typography variant="h6">Sort By :</Typography>
+      <Box sx={{ display: "flex", alignItems: "center", mr: 10 }}>
+        <Typography variant="h6" mr={4}>
+          Sort By :
+        </Typography>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
           value={sortBy}
-          label="Sort By : "
           onChange={handleChange}
+          sx={{ backgroundColor: grey[400] }}
+          size="small"
         >
           {/* need change value later, array for each category like price=[proce of all products]; */}
-          <MenuItem value={10}>Price</MenuItem>
-          <MenuItem value={20}>Category</MenuItem>
-          <MenuItem value={30}>Ratings</MenuItem>
+          <MenuItem value={"Ascending"}>Ascending</MenuItem>
+          <MenuItem value={"Decending"}>Decending</MenuItem>
         </Select>
       </Box>
     </Box>
