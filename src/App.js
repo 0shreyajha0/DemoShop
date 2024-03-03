@@ -1,11 +1,11 @@
 import { Dashboard } from "./pages/Dashboard";
 import { SearchAndSort } from "./components/SearchAndSort";
+import React from "react";
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <Dashboard />
-      <SearchAndSort />
-    </div>
+    </React.Fragment>
   );
 }
 
