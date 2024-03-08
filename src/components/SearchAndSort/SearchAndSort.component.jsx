@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,7 +7,7 @@ import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import { red, grey } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
 export const SearchAndSort = () => {
   const [sortBy, setSortBy] = React.useState("Ascending");

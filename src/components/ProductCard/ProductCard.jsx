@@ -21,7 +21,7 @@ export const ProductCard = (props) => {
           backgroundColor: "white",
         }}
       >
-        <img src={props.source} width="150px" height="125px" />
+        <img src={props.source} width="150px" height="125px" alt="" />
       </Box>
 
       <Box
